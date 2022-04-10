@@ -20,12 +20,14 @@
                                     {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên loại sản phẩm</label>
-                                    <input type="text" name="Ten_LoaiSP" class="form-control" id="exampleInputEmail1" placeholder="Tên loại sản phẩm">
+                                    <input type="text" data-validation="length" data-validation-length="min3" 
+                                        data-validation-error-msg="Chưa điền tên loại sản phẩm? Xin hãy điền vào ít nhất 3 kí tự!"
+                                        name="Ten_LoaiSP" class="form-control" id="exampleInputEmail1" placeholder="Tên loại sản phẩm">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Mô tả loại sản phẩm</label>
-                                    <textarea style="resize: none" rows="8" class="form-control" name="MoTa_LoaiSP" id="exampleInputPassword1" placeholder="Mô tả loai sản phẩm"></textarea>
+                                    <textarea style="resize: none" rows="8" class="form-control" name="MoTa_LoaiSP" id="ckeditor1" placeholder="Mô tả loai sản phẩm"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Hiển thị</label>

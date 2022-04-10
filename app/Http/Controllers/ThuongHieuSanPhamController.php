@@ -83,8 +83,8 @@ class ThuongHieuSanPhamController extends Controller
 
     //End Function Admin Page
     public function show_thuonghieu_home($ID_ThuongHieu){ 
-        $loai_sp = DB::table('loaisanpham')->where('TrangThai_LoaiSP','0')->orderby('ID_LoaiSP','desc')->get(); 
-        $thuonghieu_sp = DB::table('thuonghieusp')->where('TrangThai_ThuongHieu','0')->orderby('ID_ThuongHieu','desc')->get(); 
+        $loai_sp = DB::table('loaisanpham')->where('TrangThai_LoaiSP','0')->orderby('ID_LoaiSP','asc')->get(); 
+        $thuonghieu_sp = DB::table('thuonghieusp')->where('TrangThai_ThuongHieu','0')->orderby('ID_ThuongHieu','asc')->get(); 
 
         $thuonghieusp_by_id = DB::table('sanpham')->join('thuonghieusp','thuonghieusp.ID_ThuongHieu','=','sanpham.ID_ThuongHieu')->where('thuonghieusp.ID_ThuongHieu',$ID_ThuongHieu)->get();
          

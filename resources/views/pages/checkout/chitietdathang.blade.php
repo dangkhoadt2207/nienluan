@@ -5,7 +5,8 @@
         <div>
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li><a href="{{ URL::to('/') }}"> Trang chủ </a></li>
+                   
+                    <li><a href="{{ URL::to('/') }}">  Trang chủ  </a></li>
                     <li class="active"> Chi tiet don hang da dat</li>
                 </ol>
             </div>
@@ -40,40 +41,6 @@
     </section>
     <!--/#cart_items-->
 
-    <section id="do_action">
-        <!-- <div class="container"> -->
-        <div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="total_area">
-                        <ul>
-                            <li>Tổng <span>{{ Cart::total(0, ',', '.') . ' ' . 'VNĐ' }}</span></li>
-                            <li>Thuế <span>{{ Cart::tax(0, ',', '.') . ' ' . 'VNĐ' }}</span></li>
-                            <li>Phí vận chuyển <span>Free</span></li>
-                            <li>Thành tiền <span>{{ Cart::total(0, ',', '.') . ' ' . 'VNĐ' }}</span></li>
-                        </ul>
-                        {{-- <a class="btn btn-default update" href="">Update</a> --}}
-                        <?php
-                                   $ID_KhachHang = Session::get('ID_KhachHang');
-                                   if($ID_KhachHang!=NULL){
-                                 ?>
-
-                        <a class="btn btn-default check_out" href="{{ URL::to('/checkout') }}">Thanh toán</a>
-                        <?php
-                            }else{
-                                 ?>
-
-                        <a class="btn btn-default check_out" href="{{ URL::to('/login-checkout') }}">Thanh toán</a>
-                        <?php
-                             }
-                                 ?>
-
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   
     <!--/#do_action-->
 @endsection

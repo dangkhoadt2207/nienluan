@@ -83,8 +83,8 @@ class LoaiSanPhamController extends Controller
 
     //End Function Admin Page
     public function show_loaisp_home($ID_LoaiSP){ 
-        $loai_sp = DB::table('loaisanpham')->where('TrangThai_LoaiSP','0')->orderby('ID_LoaiSP','desc')->get(); 
-        $thuonghieu_sp = DB::table('thuonghieusp')->where('TrangThai_ThuongHieu','0')->orderby('ID_ThuongHieu','desc')->get(); 
+        $loai_sp = DB::table('loaisanpham')->where('TrangThai_LoaiSP','0')->orderby('ID_LoaiSP','asc')->get(); 
+        $thuonghieu_sp = DB::table('thuonghieusp')->where('TrangThai_ThuongHieu','0')->orderby('ID_ThuongHieu','asc')->get(); 
 
         $loaisp_by_id = DB::table('sanpham')->join('loaisanpham','loaisanpham.ID_LoaiSP','=','sanpham.ID_LoaiSP')->where('loaisanpham.ID_LoaiSP',$ID_LoaiSP)->get();
          

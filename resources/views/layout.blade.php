@@ -159,20 +159,21 @@
                                 <li><a href="{{URL::to('/trang-chu')}}" class="active">Trang chủ</a></li>
                                 <li class="dropdown"><a href="#">Sản phẩm<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Giày lười</a></li>
-                                        <li><a href="shop.html">Giày Sneaker</a></li>
-                                        <li><a href="shop.html">Giày boot</a></li>
-                                        <li><a href="shop.html">Giày công sở</a></li>
-                                        <li><a href="shop.html">Dép sandal</a></li>
-                                        <li><a href="shop.html">Dép du lịch</a></li>
-
+                                    @foreach($loaisanpham as $key => $loai)
+                                            <li><a href="{{URL::to('/danh-muc-san-pham/'.$loai->ID_LoaiSP)}}">{{$loai->Ten_LoaiSP}}</a></li>
+                                    @endforeach
                                     </ul>
                                 </li>
+                                <li class="dropdown"><a href="#">Thương hiệu<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                    @foreach($thuonghieusp as $key => $thuonghieu)
+                                    <li><a href="{{URL::to('/thuong-hieu-san-pham/'.$thuonghieu->ID_ThuongHieu)}}">{{$thuonghieu->Ten_ThuongHieu}}</a></li>
+                                    @endforeach
+                                    </ul>
                                 <li class="dropdown"><a href="#">Tin tức<i class="fa fa-angle-down"></i></a>
-
                                 </li>
                                 <li><a href="{{URL::to('/show-giohang')}}">Giỏ hàng</a></li>
-                                <li><a href="contact-us.html">Liên hệ</a></li>
+                                <li><a href="https://www.facebook.com/">Liên hệ</a></li>
                             </ul>
                         </div>
                     </div>
@@ -200,55 +201,23 @@
                             <li data-target="#slider-carousel" data-slide-to="1"></li>
                             <li data-target="#slider-carousel" data-slide-to="2"></li>
                         </ol>
-                        <!--
+
                         <div class="carousel-inner">
-                            <div class="item active"> -->
-                                <!-- <div class="col-sm-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>Free E-Commerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div> -->
-                                <!-- div class="col-sm-6">
-                                    <img src="{{('public/frontend/images/gril1.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{('public/frontend/images/pricing.png')}}"  class="pricing" alt="" />
+                            <div class="item active">
+                                <div class="col-sm-6">
+                                    <h1><span>GIÀY CAO CẤP</span> CẦN THƠ </h1>
+                                    <h2>Phong cách mạnh mẽ của bạn sẽ được thể hiện ở đôi giày bạn mang!</h2>
+                                    <p>Giày mang đến phong cách riêng của bạn!</p>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="col-sm-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>100% Responsive Design</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="{{('public/frontend/images/giay11.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{('public/frontend/images/pricing.png')}}"  class="pricing" alt="" />
-                                </div>
-                            </div -->
-
-                            <!-- <div class="item">
-                                <div class="col-sm-6">
-                                    <h1><span>E</span>-SHOPPER</h1>
-                                    <h2>Free Ecommerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <img src="{{('public/frontend/images/girl3.jpg')}}" class="girl img-responsive" alt="" />
-                                    <img src="{{('public/frontend/images/pricing.png')}}" class="pricing" alt="" />
-                                </div>
-                            </div> -->
-
                         </div>
-
-                        <!-- <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                         <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
                             <i class="fa fa-angle-left"></i>
                         </a>
                         <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
                             <i class="fa fa-angle-right"></i>
-                        </a> -->
-                    </div>
+                        </a>
+                        </div>
 
                 </div>
             </div>
@@ -262,8 +231,7 @@
                     <div class="left-sidebar">
                         <h2>Danh mục các loại giày</h2>
                         <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                          @foreach($loaisanpham as $key => $loai)
-
+                        @foreach($loaisanpham as $key => $loai)
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title"><a href="{{URL::to('/danh-muc-san-pham/'.$loai->ID_LoaiSP)}}">{{$loai->Ten_LoaiSP}}</a></h4>
@@ -274,17 +242,16 @@
 
                         <div class="brands_products"><!--brands_products-->
                             <h2>Thương hiệu nổi tiếng</h2>
-                             <div class="brands-name">
-                                <ul class="nav nav-pills nav-stacked">
-                                    @foreach($thuonghieusp as $key => $thuonghieu)
-                                    <li><a href="{{URL::to('/thuong-hieu-san-pham/'.$thuonghieu->ID_ThuongHieu)}}"> <span class="pull-right">(50)</span>{{$thuonghieu->Ten_ThuongHieu}}</a></li>
-                                    @endforeach
-                                </ul>
+                            <div class="panel-group category-products" id="accordian">
+                            @foreach($thuonghieusp as $key => $thuonghieu)
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><a href="{{URL::to('/thuong-hieu-san-pham/'.$thuonghieu->ID_ThuongHieu)}}">{{$thuonghieu->Ten_ThuongHieu}}</a></h4>
+                                </div>
+                            </div>
+                            @endforeach
                             </div>
                         </div><!--/brands_products-->
-
-
-
                     </div>
                 </div>
 
@@ -455,13 +422,11 @@
 
     </footer><!--/Footer-->
 
-
-
-   <!--  <script src="{{asset('public/frontend/js/jquery.js')}}"></script>
+    <script src="{{asset('public/frontend/js/jquery.js')}}"></script>
     <script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('public/frontend/js/jquery.scrollUp.min.js')}}"></script>
     <script src="{{asset('public/frontend/js/price-range.js')}}"></script>
     <script src="{{asset('public/frontend/js/jquery.prettyPhoto.js')}}"></script>
-    <script src="{{asset('public/frontend/js/main.js')}}"></script> -->
+    <script src="{{asset('public/frontend/js/main.js')}}"></script>
 </body>
 </html>

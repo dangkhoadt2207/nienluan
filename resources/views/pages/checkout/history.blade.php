@@ -30,7 +30,7 @@
                                 <td>{{ $v->HoTen_KhachHang }}</td>
                                 <td>{{ $v->Tong_DonHang }}</td>
                                 <td>
-                                    <a href="{{ URL::to('/lishsu/donhang/chitiet/'.$v->ID_DonHang)}}">Xem</a>
+                                    <a href="{{ URL::to('/lishsu/donhang/chitiet/'.$v->ID_DonHang)}}">Xem lại</a>
                                 </td>
                             </tr>
                         @endforeach
