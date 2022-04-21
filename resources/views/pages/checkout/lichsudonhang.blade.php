@@ -20,6 +20,7 @@
                             <th>STT</th>
                             <th>Họ Tên</th>
                             <th>Tổng Tiền</th>
+                            <th>Tình Trạng</th>
                             <th>Thao Tác</th>
                         </tr>
                     </thead>
@@ -29,6 +30,7 @@
                                 <td>{{ $k+1 }}</td>
                                 <td>{{ $v->HoTen_KhachHang }}</td>
                                 <td>{{ $v->Tong_DonHang }}</td>
+                                <td>{{ $v->TrangThai_DonHang}}</td>
                                 <td>
                                     <a href="{{ URL::to('/lishsu/donhang/chitiet/'.$v->ID_DonHang)}}">Xem lại</a>
                                 </td>

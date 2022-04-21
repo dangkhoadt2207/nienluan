@@ -58,6 +58,22 @@ class CheckoutController extends Controller
                 ->where('ID_SP',$ID_SP)
                 ->update(['SoLuong_SP' => $sl_conlai]);
             }
+
+        elseif($trangthaiduyet == "Huỷ đơn hàng"):
+            $donhang_by_id = DB::table('chitietdonhang')->select('chitietdonhang.*')->where('ID_DonHang',$ID_DonHang)->get();
+
+            foreach ($donhang_by_id as $key => $value) {
+                $ID_SP = $value->ID_SP;
+
+                $sl_kho = DB::table('sanpham')->where('ID_SP', $ID_SP)->first();
+                $slmua = $value->SoLuong_DaMua_SP;
+
+                $sl_conlai = $sl_kho->SoLuong_SP + $slmua;
+
+                $update_sl = DB::table('sanpham')
+                ->where('ID_SP',$ID_SP)
+                ->update(['SoLuong_SP' => $sl_conlai]);
+            }
         endif;
 
         return redirect()->back();
@@ -178,6 +194,8 @@ class CheckoutController extends Controller
 
         //return Redirect::to('/payment');
     }
+
+
     public function logout_checkout(){
     	Session::flush();
     	return Redirect::to('/login-checkout');
@@ -206,13 +224,13 @@ class CheckoutController extends Controller
         return view('admin_layout')->with('admin.qly_donhang',$manager_donhang);
     }
 
-    public function history(){
-        if(!Session::get('ID_KhachHang')){
-            return redirect('login-khachhang')->with('Error','Vui lòng đăng nhập để xem lịch sử mua hàng');
-        }
+    // public function history(){
+    //     if(!Session::get('ID_KhachHang')){
+    //         return redirect('login-khachhang')->with('Error','Vui lòng đăng nhập để xem lịch sử mua hàng');
+    //     }
 
-        return view('pages.checkout.history');
+    //     return view('pages.checkout.history');
 
-    }
+    // }
 
 }

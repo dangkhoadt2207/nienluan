@@ -16,6 +16,7 @@ Route::get('/','HomeController@index' );
 Route::get('/trang-chu','HomeController@index');
 Route::post('/tim-kiem','HomeController@search');
 
+
 //Danh muc san pham trang chu
 Route::get('/danh-muc-san-pham/{ID_LoaiSP}','LoaiSanPhamController@show_loaisp_home');
 Route::get('/thuong-hieu-san-pham/{ID_ThuongHieu}','ThuongHieuSanPhamController@show_thuonghieu_home');

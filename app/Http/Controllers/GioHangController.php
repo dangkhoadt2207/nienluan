@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Session;
 
 use Illuminate\Support\Facades\Redirect;
 
-
 session_start();
 class GioHangController extends Controller
 {
@@ -83,6 +82,8 @@ class GioHangController extends Controller
         return Redirect::to('/show-giohang');
     }
 
+
+
     public function lichsu(Request $request)
     {
 
@@ -92,10 +93,10 @@ class GioHangController extends Controller
             ->where('a.ID_KhachHang', $request->id)
             ->get();
 
-        $loaisanpham = DB::table('loaisanpham')->where('TrangThai_LoaiSP', '0')->orderby('ID_LoaiSP', 'desc')->get();
-        $thuonghieusp = DB::table('thuonghieusp')->where('TrangThai_ThuongHieu', '0')->orderby('ID_ThuongHieu', 'desc')->get();
+        $loaisanpham = DB::table('loaisanpham')->where('TrangThai_LoaiSP', '0')->orderby('ID_LoaiSP', 'asc')->get();
+        $thuonghieusp = DB::table('thuonghieusp')->where('TrangThai_ThuongHieu', '0')->orderby('ID_ThuongHieu', 'asc')->get();
 
-        return view('pages.checkout.history', compact('list', 'loaisanpham', 'thuonghieusp'));
+        return view('pages.checkout.lichsudonhang', compact('list', 'loaisanpham', 'thuonghieusp'));
     }
 
     public function chitietDH($id)
@@ -107,4 +108,8 @@ class GioHangController extends Controller
 
         return view('pages.checkout.chitietdathang', compact('list', 'loaisanpham', 'thuonghieusp'));
     }
+
+
+
+
 }

@@ -7,7 +7,7 @@
                 <ol class="breadcrumb">
                    
                     <li><a href="{{ URL::to('/') }}">  Trang chủ  </a></li>
-                    <li class="active"> Chi tiet don hang da dat</li>
+                    <li class="active"> Chi tiết đơn hàng đã đặt</li>
                 </ol>
             </div>
             <div class="table-responsive cart_info">
@@ -33,7 +33,6 @@
                             <td>{{$v->TongTien_ChiTiet}}</td>
                         </tr>
                         @endforeach
-
                     </tbody>
                 </table>
             </div>

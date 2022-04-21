@@ -26,7 +26,6 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-
 </head><!--/head-->
 
 <body>
@@ -47,6 +46,7 @@
                         <div class="social-icons pull-right">
                             <ul class="nav navbar-nav">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                                 <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
@@ -92,13 +92,22 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-
-                                <li><a href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
+                                <?php
+                                $ID_KhachHang = Session::get('ID_KhachHang');
+                                if($ID_KhachHang!=NULL){
+                                ?>
+                          
+                                <li><a href="#"><i class="fa fa-user"></i>Võ Đăng Khoa</a></li>
+                                
+                                <?php
+                                }
+                                ?>
                                 <?php
                                    $ID_KhachHang = Session::get('ID_KhachHang');
                                    $ID_DonHang = Session::get('ID_DonHang');
                                    if($ID_KhachHang!=NULL && $ID_DonHang==NULL){
                                  ?>
+
                                   <li><a href="{{URL::to('/checkout')}}"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
 
                                 <?php
@@ -108,33 +117,31 @@
                                  <?php
                                 }else{
                                 ?>
-                                 <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
+                                 <!-- <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-crosshairs"></i> Thanh toán</a></li> -->
+                                <?php } ?>
                                 <?php
-                                 }
-                                ?>
-
-
-                                <?php
-                                    $ID_KhachHang = Session::get('ID_KhachHang');
-                                    if($ID_KhachHang!=NULL){
+                                $ID_KhachHang = Session::get('ID_KhachHang');
+                                if($ID_KhachHang!=NULL){
                                 ?>
                                 <li><a href="{{URL::to('/lichsu/'.$ID_KhachHang)}}"><i class="fa fa-history"></i>Lịch sử</a></li>
                                 <?php }?>
 
                                 <li><a href="{{URL::to('/show-giohang')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                 <?php
-                                   $ID_KhachHang = Session::get('ID_KhachHang');
-                                   if($ID_KhachHang!=NULL){
-                                 ?>
-                                  <li><a href="{{URL::to('/logout-checkout')}}"><i class="fa fa-lock"></i> Đăng xuất</a></li>
+                                $ID_KhachHang = Session::get('ID_KhachHang');
+                                if($ID_KhachHang!=NULL){
+                                ?>
+                                <li><a href="{{URL::to('/logout-checkout')}}"><i class="fa fa-key"></i> Đăng xuất</a></li>
                                 <?php
-                            }else{
-                                 ?>
-                                 <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
-                                 <?php
-                             }
-                                 ?>
-
+                                }else{
+                                ?>
+                                <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+                                <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-user-plus"></i> Đăng kí tài khoản</a></li>
+                                <?php
+                                }
+                                ?>
+                                
+                                
                             </ul>
                         </div>
                     </div>
@@ -156,24 +163,23 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="{{URL::to('/trang-chu')}}" class="active">Trang chủ</a></li>
-                                <li class="dropdown"><a href="#">Sản phẩm<i class="fa fa-angle-down"></i></a>
+                                <li><a href="{{URL::to('/trang-chu')}}" class="active"><i class="fa fa-home"></i> Trang chủ</a></li>
+                                <li class="dropdown"><a href="#"><i class="fa fa-product-hunt"></i> Sản phẩm<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                     @foreach($loaisanpham as $key => $loai)
-                                            <li><a href="{{URL::to('/danh-muc-san-pham/'.$loai->ID_LoaiSP)}}">{{$loai->Ten_LoaiSP}}</a></li>
+                                            <li><i class="fa fa-long-arrow-right "></i><a href="{{URL::to('/danh-muc-san-pham/'.$loai->ID_LoaiSP)}}"> {{$loai->Ten_LoaiSP}}</a></li>
                                     @endforeach
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#">Thương hiệu<i class="fa fa-angle-down"></i></a>
+                                <li class="dropdown"><a href="#"><i class="fa fa-amazon"></i> Thương hiệu<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                     @foreach($thuonghieusp as $key => $thuonghieu)
-                                    <li><a href="{{URL::to('/thuong-hieu-san-pham/'.$thuonghieu->ID_ThuongHieu)}}">{{$thuonghieu->Ten_ThuongHieu}}</a></li>
+                                    <li><i class="fa fa-long-arrow-right "></i><a href="{{URL::to('/thuong-hieu-san-pham/'.$thuonghieu->ID_ThuongHieu)}}"> {{$thuonghieu->Ten_ThuongHieu}}</a></li>
                                     @endforeach
                                     </ul>
-                                <li class="dropdown"><a href="#">Tin tức<i class="fa fa-angle-down"></i></a>
-                                </li>
-                                <li><a href="{{URL::to('/show-giohang')}}">Giỏ hàng</a></li>
-                                <li><a href="https://www.facebook.com/">Liên hệ</a></li>
+                                <!-- <li class="dropdown"><a href="#">Tin tức<i class="fa fa-angle-down"></i></a></li> -->
+                                <li><a href="{{URL::to('/show-giohang')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                                <!-- <li><a href="https://www.facebook.com/">Liên hệ</a></li> -->
                             </ul>
                         </div>
                     </div>
@@ -203,13 +209,14 @@
                         </ol>
 
                         <div class="carousel-inner">
-                            <div class="item active">
+                            
+                        
+                        <div class="item active">
                                 <div class="col-sm-6">
                                     <h1><span>GIÀY CAO CẤP</span> CẦN THƠ </h1>
                                     <h2>Phong cách mạnh mẽ của bạn sẽ được thể hiện ở đôi giày bạn mang!</h2>
                                     <p>Giày mang đến phong cách riêng của bạn!</p>
                                 </div>
-                            </div>
                         </div>
                          <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
                             <i class="fa fa-angle-left"></i>
@@ -229,7 +236,7 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="left-sidebar">
-                        <h2>Danh mục các loại giày</h2>
+                        <h2><i class="fa fa-clone"></i> Danh mục các loại giày</h2>
                         <div class="panel-group category-products" id="accordian"><!--category-productsr-->
                         @foreach($loaisanpham as $key => $loai)
                             <div class="panel panel-default">
@@ -241,7 +248,7 @@
                         </div><!--/category-products-->
 
                         <div class="brands_products"><!--brands_products-->
-                            <h2>Thương hiệu nổi tiếng</h2>
+                            <h2><i class="fa fa-amazon"></i> Thương hiệu nổi tiếng</h2>
                             <div class="panel-group category-products" id="accordian">
                             @foreach($thuonghieusp as $key => $thuonghieu)
                             <div class="panel panel-default">
@@ -271,7 +278,7 @@
                     <div class="col-sm-2">
                         <div class="companyinfo">
                             <h2><span>Giày Cao Cấp</span>-Cần Thơ</h2>
-                            <p>Mọi thắc mắc góp ý xin gửi về email: haha@gmail.com</p>
+                            <p>Mọi thắc mắc góp ý xin gửi về email: vodangkhoa2207@gmail.com</p>
                         </div>
                     </div>
                     <div class="col-sm-7">
@@ -279,7 +286,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="{{('public/frontend/images/iframe1.png')}}" alt="" />
+                                        <img src="{{('public/frontend/images/giay11.png')}}" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -294,7 +301,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                         <img src="{{('public/frontend/images/iframe2.png')}}" alt="" />
+                                         <img src="{{('public/frontend/images/giay12.png')}}" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -309,7 +316,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                         <img src="{{('public/frontend/images/iframe3.png')}}" alt="" />
+                                         <img src="{{('public/frontend/images/giay13.png')}}" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -324,7 +331,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                         <img src="{{('public/frontend/images/iframe4.png')}}" alt="" />
+                                         <img src="{{('public/frontend/images/giay11.png')}}" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
