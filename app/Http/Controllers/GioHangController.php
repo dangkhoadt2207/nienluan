@@ -91,6 +91,7 @@ class GioHangController extends Controller
             ->leftjoin('khachhang as b', 'a.ID_KhachHang', 'b.ID_KhachHang')
             ->select('a.*', 'b.HoTen_KhachHang')
             ->where('a.ID_KhachHang', $request->id)
+            ->orderby('ID_DonHang', 'desc')
             ->get();
 
         $loaisanpham = DB::table('loaisanpham')->where('TrangThai_LoaiSP', '0')->orderby('ID_LoaiSP', 'asc')->get();

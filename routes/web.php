@@ -92,5 +92,5 @@ Route::get('/delete-dh/{ID_DonHang}','CheckoutController@delete_dh');
 Route::get('/history/{ID_KhachHang}','CheckoutController@history');
 
 //History
-Route::get('/lichsu/{id}','GioHangController@lichsu');
-Route::get('/lishsu/donhang/chitiet/{id}', 'GioHangController@chitietDH');
+Route::get('/lichsu/{id}','LichSuController@lichsu');
+Route::get('/lishsu/donhang/chitiet/{id}', 'LichSuController@chitietDH');

@@ -18,6 +18,7 @@
                     <thead>
                         <tr class="cart_menu">
                             <th>STT</th>
+                            <th>ID Đơn Hàng</th>
                             <th>Họ Tên</th>
                             <th>Tổng Tiền</th>
                             <th>Tình Trạng</th>
@@ -28,6 +29,7 @@
                         @foreach ($list as $k => $v)
                             <tr>
                                 <td>{{ $k+1 }}</td>
+                                <td>{{ $v->ID_DonHang }}</td>
                                 <td>{{ $v->HoTen_KhachHang }}</td>
                                 <td>{{ $v->Tong_DonHang }}</td>
                                 <td>{{ $v->TrangThai_DonHang}}</td>

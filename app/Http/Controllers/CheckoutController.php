@@ -108,6 +108,8 @@ class CheckoutController extends Controller
 
         Session::put('ID_KhachHang',$ID_KhachHang);
         Session::put('Email_KhachHang',$request->Email_KhachHang);
+        Session::put('HoTen_KhachHang',$HoTen_KhachHang);
+
         return Redirect::to('/checkout');
 
 
@@ -207,6 +209,7 @@ class CheckoutController extends Controller
 
     	if($result){
     		Session::put('ID_KhachHang',$result->ID_KhachHang);
+            Session::put('HoTen_KhachHang',$result->HoTen_KhachHang);
     		return Redirect::to('/checkout');
     	}else{
     		return Redirect::to('/login-checkout');
@@ -224,13 +227,6 @@ class CheckoutController extends Controller
         return view('admin_layout')->with('admin.qly_donhang',$manager_donhang);
     }
 
-    // public function history(){
-    //     if(!Session::get('ID_KhachHang')){
-    //         return redirect('login-khachhang')->with('Error','Vui lòng đăng nhập để xem lịch sử mua hàng');
-    //     }
-
-    //     return view('pages.checkout.history');
-
-    // }
+ 
 
 }

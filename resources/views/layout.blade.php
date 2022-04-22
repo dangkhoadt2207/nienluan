@@ -94,10 +94,11 @@
                             <ul class="nav navbar-nav">
                                 <?php
                                 $ID_KhachHang = Session::get('ID_KhachHang');
+                                $HoTen_KhachHang = Session::get('HoTen_KhachHang');
                                 if($ID_KhachHang!=NULL){
                                 ?>
                           
-                                <li><a href="#"><i class="fa fa-user"></i>Võ Đăng Khoa</a></li>
+                                <li><a href="#"><i class="fa fa-user"></i>{{$HoTen_KhachHang}}</a></li>
                                 
                                 <?php
                                 }
