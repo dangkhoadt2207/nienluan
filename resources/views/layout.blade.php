@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Giày Cao Cấp Cần Thơ</title>
+    <title>Shop Giày Cao Cấp Cần Thơ</title>
     <link href="{{asset('public/frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     {{-- <link href="{{asset('public/frontend/css/font-awesome.min.css')}}" rel="stylesheet"> --}}
     <link href="{{asset('public/frontend/css/prettyPhoto.css')}}" rel="stylesheet">

@@ -89,7 +89,8 @@ Route::get('/qly-donhang','CheckoutController@qly_donhang');
 Route::get('/view-dh/{orderId}','CheckoutController@view_dh');
 Route::get('/duyet-dh/update/{ID_DonHang}','CheckoutController@duyet_dh');
 Route::get('/delete-dh/{ID_DonHang}','CheckoutController@delete_dh');
-Route::get('/history/{ID_KhachHang}','CheckoutController@history');
+
+
 
 //History
 Route::get('/lichsu/{id}','LichSuController@lichsu');

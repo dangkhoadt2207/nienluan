@@ -97,6 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 						<li><a href="{{URL::to('/qly-donhang')}}">Quản lý đơn hàng</a></li>
 
+
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -129,6 +130,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
 						<li><a href="{{URL::to('/add-sanpham')}}">Thêm sản phẩm</a></li>
 						<li><a href="{{URL::to('/all-sanpham')}}">Liệt kê sản phẩm</a></li>
+
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Thống kê doanh thu</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="#">Biểu đồ hiển thị doanh số</a></li>
+
+                    </ul>
+                </li> 
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Quản lý người dùng</span>
+                    </a>
+                    <ul class="sub">
+						
 
                     </ul>
                 </li>

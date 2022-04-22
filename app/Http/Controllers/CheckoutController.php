@@ -108,7 +108,6 @@ class CheckoutController extends Controller
 
         Session::put('ID_KhachHang',$ID_KhachHang);
         Session::put('Email_KhachHang',$request->Email_KhachHang);
-        Session::put('HoTen_KhachHang',$HoTen_KhachHang);
 
         return Redirect::to('/checkout');
 
@@ -226,7 +225,4 @@ class CheckoutController extends Controller
         $manager_donhang = view('admin.qly_donhang')->with('all_donhang',$all_donhang);
         return view('admin_layout')->with('admin.qly_donhang',$manager_donhang);
     }
-
- 
-
 }
