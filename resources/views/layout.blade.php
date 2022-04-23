@@ -97,9 +97,9 @@
                                 $HoTen_KhachHang = Session::get('HoTen_KhachHang');
                                 if($ID_KhachHang!=NULL){
                                 ?>
-                          
+
                                 <li><a href="#"><i class="fa fa-user"></i>{{$HoTen_KhachHang}}</a></li>
-                                
+
                                 <?php
                                 }
                                 ?>
@@ -141,8 +141,8 @@
                                 <?php
                                 }
                                 ?>
-                                
-                                
+
+
                             </ul>
                         </div>
                     </div>
@@ -188,10 +188,22 @@
                         <form action="{{URL::to('/tim-kiem')}}" method="POST">
                             {{csrf_field()}}
                         <div class="search_box pull-right">
-                            <input type="text" name="keywords_submit" placeholder="Tìm kiếm sản phẩm"/>
+                            <input type="text" id="q" name="keywords_submit" placeholder="Tìm kiếm sản phẩm"/>
+
+                            {{-- <input type="button"   value="Click to Speak" onclick="recognition.start()"> </div> --}}
                             <input type="submit" style="margin-top:0;color:#666" name="search_items" class="btn btn-primary btn-sm" value="Tìm kiếm">
+                            <button onclick="event.preventDefault(); recognition.start()"> <i class="fa fa-microphone"></i> </button>
                         </div>
                         </form>
+                        {{-- <form action="{{URL::to('/tim-kiem')}}" method="POST">
+                            {{csrf_field()}}
+
+                            <div>
+                                <input type="search" id="q" value="" name="keywords_submit" placeholder="Tìm kiếm sản phẩm">
+                                <input type="button" value="Click to Speak" onclick="recognition.start()">
+                                <input type="submit" style="margin-top:0;color:#666" name="search_items" class="btn btn-primary btn-sm" value="Tìm kiếm">
+                            </div>
+                        </form> --}}
                     </div>
                 </div>
             </div>
@@ -210,8 +222,8 @@
                         </ol>
 
                         <div class="carousel-inner">
-                            
-                        
+
+
                         <div class="item active">
                                 <div class="col-sm-6">
                                     <h1><span>GIÀY CAO CẤP</span> CẦN THƠ </h1>
@@ -287,7 +299,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="{{('public/frontend/images/giay11.png')}}" alt="" />
+                                        <img src="{{('public/frontend/images/giay11.jpeg')}}" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -302,7 +314,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                         <img src="{{('public/frontend/images/giay12.png')}}" alt="" />
+                                         <img src="{{('public/frontend/images/giay12.jpeg')}}" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -317,7 +329,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                         <img src="{{('public/frontend/images/giay13.png')}}" alt="" />
+                                         <img src="{{('public/frontend/images/giay13.jpeg')}}" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -332,7 +344,7 @@
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                         <img src="{{('public/frontend/images/giay11.png')}}" alt="" />
+                                         <img src="{{('public/frontend/images/giay11.jpeg')}}" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -342,10 +354,11 @@
                                 <h2>24 DEC 2014</h2>
                             </div>
                         </div>
+
                     </div>
                     <div class="col-sm-3">
                         <div class="address">
-                            <img src="{{('public/frontend/images/giay11.png')}}" alt="" />
+                            {{-- <img src="{{('public/frontend/images/giay11.png')}}" alt="" /> --}}
                             <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
                         </div>
                     </div>
@@ -436,5 +449,15 @@
     <script src="{{asset('public/frontend/js/price-range.js')}}"></script>
     <script src="{{asset('public/frontend/js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{asset('public/frontend/js/main.js')}}"></script>
+    <script type="text/javascript">
+        var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        var recognition = new SpeechRecognition();
+        recognition.onresult = function(event) {
+          if (event.results.length > 0) {
+            q.value = event.results[0][0].transcript;
+            q.form.submit();
+          }
+        }
+      </script>
 </body>
 </html>
