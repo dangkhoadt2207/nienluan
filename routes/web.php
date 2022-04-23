@@ -91,7 +91,7 @@ Route::get('/duyet-dh/update/{ID_DonHang}','CheckoutController@duyet_dh');
 Route::get('/delete-dh/{ID_DonHang}','CheckoutController@delete_dh');
 
 
-
 //History
 Route::get('/lichsu/{id}','LichSuController@lichsu');
 Route::get('/lishsu/donhang/chitiet/{id}', 'LichSuController@chitietDH');
+

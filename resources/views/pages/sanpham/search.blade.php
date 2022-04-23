@@ -2,7 +2,6 @@
 @section('content')
 <div class="features_items"><!--features_items-->
                         <h2 class="title text-center">Kết quả tìm kiếm</h2>
-
                        @foreach($search_sanpham as $key => $sanpham)
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
@@ -28,5 +27,5 @@
                         @endforeach
                     </div><!--features_items-->
         <!--/recommended_items-->
-    
+
 @endsection

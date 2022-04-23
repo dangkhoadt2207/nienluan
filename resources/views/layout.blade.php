@@ -63,7 +63,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="index.html"><img src="{{('public/frontend/images/home/logo.png')}}" alt="" /></a>
+                            {{-- <a href="index.html"><img src="{{('public/frontend/images/logo1.jpg')}}" alt="" /></a> --}}
                         </div>
                         <!-- <div class="btn-group pull-right">
                             <div class="btn-group">
